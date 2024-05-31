@@ -1,0 +1,337 @@
+//@import 'components'
+@use "settings";
+@use "fonts";
+@use "vars";
+@use "mixins";
+@use "vendor";
+@use "components";
+@use "page";
+
+
+body {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--bg_color);
+  color: var(--text_color);
+  overflow-x: hidden;
+}
+
+.overlay__body {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+}
+
+.main__body {
+  margin: 0 auto;
+  min-height:  1024px;
+  overflow-x: hidden;
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entrance__user {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .entrance__context {
+    width: 100%;
+    padding-bottom: 47px;
+  }
+
+  .entrance__text {
+    font-family: Noto-Sans-lonly, sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 96px;
+    letter-spacing: -1.4px;
+    line-height: 1.25;
+  }
+}
+
+.wrapper__button {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  button {
+    flex: 0 0 auto;
+    display: inline-block;
+    padding:  24px;
+    border: 5px solid var(--text_color);
+    font-size: 32px;
+    font-family: Noto-Sans-Disp-SemBd-italic-lonly, sans-serif;
+    //margin-left: 18px;
+    background: transparent;
+    color: var(--text_color);
+    transition: all 300ms ease-in;
+
+    &:hover {
+      color: var(--accents);
+      border-color: var(--accents);
+    }
+  }
+
+  span {
+    display: inline;
+    width: 100%;
+    border-top: 2px dashed #4D4D4D;
+    letter-spacing: 1px;
+  }
+}
+
+.form__wrapper {
+  min-height: 796px;
+  position: relative;
+  flex: 0 0 480px;
+  padding: 10px;
+  z-index: 3;
+  background: rgba(0, 0, 0, .14);
+  border-radius: 15px;
+  box-shadow: -8px 4px 5px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(15px);
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    padding: 1px;
+    border-radius: 15px;
+    background: rgb(175, 175, 175);
+    background: linear-gradient(150deg, rgba(175, 175, 175, 1) 0%, rgba(96, 96, 96, 0) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .form-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    background: rgb(191, 191, 191);
+    background: linear-gradient(329deg, rgba(191, 191, 191, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
+    display: block;
+    z-index: 3;
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      padding: 1px;
+      border-radius: 15px;
+      background: rgb(255, 255, 255);
+      background: linear-gradient(250deg, rgba(255, 255, 255, 1) 0%, rgba(0, 0, 0, 0) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+  }
+
+  .form__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 97px 40px 40px;
+    z-index: 5;
+  }
+
+  .login__form {
+    display: flex;
+    flex-direction: column;
+
+    .page__title {
+      font-family: Noto-Sans-Sem-Bd-lonly, sans-serif;
+      font-size: 36px;
+    }
+
+    .page__slogan {
+      font-family: Noto-Sans-lonly, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 16px;
+    }
+
+    .login__label {
+      position: relative;
+      width: 100%;
+      height: 55px;
+      border-radius: 12px;
+
+      .btn__passw__eye {
+        background: transparent;
+        position: absolute;
+        border: none;
+        width: 16px;
+        height: 15px;
+        right: 0;
+        bottom: 36%;
+        transform: translateX(-100%);
+      }
+
+      .btn__passw__ico {
+        width: 100%;
+        height: auto;
+        fill: var(--text_color);
+      }
+    }
+
+    .login__input {
+      width: 100%;
+      height: 55px;
+      padding: 2px 2px 2px 15px;
+      border-radius: 12px;
+      background-color: transparent;
+      border: 1px solid var(--text_color);;
+      color: var(--text_color);
+      margin-top: 1px;
+      font-size: 20px;
+      transition: border-color 300ms ease-in;
+
+      &__active {
+        border-color: var(--accents);
+      }
+    }
+
+    .login__input::placeholder {
+      font-family: Noto-Sans-lonly, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      color: var(--text_color);
+    }
+
+    .text_checkbox {
+      font-family: Noto-Sans-lonly, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 16px;
+    }
+
+
+
+    .forgot__password {
+      text-align: center;
+      color: var(--text_color);
+      font-family: Noto-Sans-lonly, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 16px;
+      margin-top: 13px;
+      transition: all 300ms ease-in;
+
+      &:hover {
+        color: var(--accents);
+      }
+    }
+  }
+
+  .login__design {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #4D4D4D;
+    margin-top: 45px;
+
+    .line__text {
+      margin: 0 20px;
+      font-family: Noto-Sans-lonly, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 16px;
+    }
+
+    .line {
+      display: inline-block;
+      width: 100%;
+      height: 2px;
+      background-color: #4D4D4D;
+    }
+  }
+
+  .wrapper__login_icon {
+    text-align: center;
+    margin-top: 13px;
+
+    a {
+      display: inline-block;
+    }
+
+    .login_icon {
+      margin: 0 9px;
+      width: 42px;
+      height: 42px;
+    }
+  }
+}
+
+.wrapper__button_line {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 4px;
+  font-family: Noto-Sans-lonly, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 2.1;
+  letter-spacing: 0;
+  flex-wrap: wrap;
+
+  a {
+    transition: all 300ms ease-in;
+
+    &:hover {
+      color: var(--accents);
+    }
+  }
+
+  .Sign_Up {
+    text-align: center;
+    flex: 1 0 100%;
+    letter-spacing: 0.1px;
+  }
+
+  .bottom__line {
+    width: 100%;
+    background: rgb(98, 98, 98);
+    background: linear-gradient(270deg, rgba(98, 98, 98, 0.01) 0%, rgba(98, 98, 98, 0.05) 100%);
+    border-radius: 6px;
+
+    .inner__bottom__line {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 6px;
+      gap: 5px;
+
+      a {
+        letter-spacing: 0.1px;
+        opacity: 100%;
+      }
+    }
+  }
+}
+
+
+@import "media";

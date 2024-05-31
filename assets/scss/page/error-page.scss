@@ -1,0 +1,25 @@
+.error-layout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-bottom: 200px;
+  background-color: var(--bg_color);
+  color: var(--text_color);
+}
+.prose{
+  text-align: center;
+  //line-height: 1.8;
+}
+.err_status{
+  color: var(--text_color);
+  font-size: 150px;
+  font-family: Noto-Sans-Sem-Bd-lonly, sans-serif;
+}
+.err_message{
+  color: var(--text_color);
+  font-size: 50px;
+  font-family: Noto-Sans-lonly, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}

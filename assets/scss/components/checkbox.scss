@@ -1,0 +1,76 @@
+.label_checkbox {
+  position: relative;
+  padding-left: 2px;
+  display: flex;
+  align-items: center;
+  transition: all 300ms ease-in;
+
+  &:hover{
+    cursor: pointer;
+    color: var(--accents);
+  }
+  input {
+    position: absolute;
+    left: 3px;
+  }
+  .text_checkbox{
+    padding-left: 19px;
+  }
+}
+
+.custom_checkbox {
+  position: absolute;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border-radius: 3px;
+  background: rgb(124, 193, 243);
+  background: linear-gradient(56deg, rgba(124, 193, 243, 1) 0%, rgba(210, 126, 239, 1) 100%);
+}
+
+/* On mouse-over, add a grey background color */
+.label_checkbox:hover input ~ .custom_checkbox {
+  animation: anim-custom_checkbox 300ms ease-in forwards;
+
+}
+@keyframes anim-custom_checkbox {
+  from{
+    background: rgb(124, 193, 243);
+    background: linear-gradient(56deg, rgba(124, 193, 243, 1) 0%, rgba(210, 126, 239, 1) 100%);
+  }
+  to{
+    background: rgb(156, 209, 247);
+    background: linear-gradient(56deg, rgba(156, 209, 247, 1) 0%, rgba(225, 161, 247, 1) 100%);
+  }
+}
+
+/* When the checkbox is checked, add a blue background */
+.label_checkbox input:checked ~ .custom_checkbox {
+  background-color: #D27EEF;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.custom_checkbox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.label_checkbox input:checked ~ .custom_checkbox:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.label_checkbox .custom_checkbox:after {
+  left: 5px;
+  top: 2px;
+  width: 2px;
+  height: 6px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

@@ -1,0 +1,27 @@
+{
+  "name": "im-lonely",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@vee-validate/nuxt": "^4.12.8",
+    "@vee-validate/yup": "^4.12.8",
+    "mysql2": "^3.9.7",
+    "nuxt": "^3.11.2",
+    "sass": "^1.75.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/next": "^9.0.0",
+    "@types/node": "^20.12.8",
+    "@vite-pwa/nuxt": "^0.6.0",
+    "nuxt-svgo": "^4.0.0"
+  }
+}
